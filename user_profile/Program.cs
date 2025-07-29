@@ -23,22 +23,25 @@ namespace user_profile
     {
         static void Main(string[] args)
         {
-            string? userName = String.Empty;
+            string? userNameNullable = String.Empty;
+            string userName = String.Empty;
             int userAge = 0;
-            string? userEmail = String.Empty;
+            string? userEmailNullable = String.Empty;
+            string userEmail = String.Empty;
            
             // Вводим и проверяем имя
             while (true)
             {
                 Console.Write("Введите свое имя: ");
-                userName = Console.ReadLine();
-                if (!Validators.IsValidInput(userName))
+                userNameNullable = Console.ReadLine();
+                if (!Validators.IsValidInput(userNameNullable))
                 {
                     Console.WriteLine("Имя не дожно быть пустым, пожалуйста, введите корректное имя.");
                     continue;
                 }
                 else
                 {
+                    userName = userNameNullable!;
                     break;
                 }
             }
@@ -63,17 +66,18 @@ namespace user_profile
             while (true)
             {
                 Console.Write("Введите свою электронную почту: ");
-                userEmail = Console.ReadLine();
-                if (!Validators.IsValidInput(userEmail))
+                userEmailNullable = Console.ReadLine();
+                if (!Validators.IsValidInput(userEmailNullable))
                     {
                     Console.WriteLine("Введите адрес вашей электнонной почты");
                     continue;
                 }
-                if (!Validators.IsValidEmail(userEmail))
+                if (!Validators.IsValidEmail(userEmailNullable))
                 {
                     Console.WriteLine("Адрес электронной почты должен содержать один символ @ и как, как минимум, одну точку '.' и быть более 5 символов");
                     continue;
                 }
+                userEmail = userEmailNullable!;
                 break;
             }
 
