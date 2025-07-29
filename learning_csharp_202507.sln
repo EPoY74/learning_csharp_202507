@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36310.24 d17.14
+VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "learning_csharp_202507", "learning_csharp_202507\learning_csharp_202507.csproj", "{0DE440D7-31D3-4AA9-9DE2-4E0829832823}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "les_02", "les_02\les_02.csproj", "{15A36DAF-D34B-49BA-B7D7-E3AE4931E416}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user_profile", "user_profile\user_profile.csproj", "{28F58BA0-1131-49A9-A7E1-F5F44A4916D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{15A36DAF-D34B-49BA-B7D7-E3AE4931E416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15A36DAF-D34B-49BA-B7D7-E3AE4931E416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15A36DAF-D34B-49BA-B7D7-E3AE4931E416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F58BA0-1131-49A9-A7E1-F5F44A4916D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F58BA0-1131-49A9-A7E1-F5F44A4916D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F58BA0-1131-49A9-A7E1-F5F44A4916D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F58BA0-1131-49A9-A7E1-F5F44A4916D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
