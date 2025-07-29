@@ -115,7 +115,41 @@ namespace user_profile
 
 
             // выводим данные с выравниванием в табличке
-            var paddedName = userName.PadRight()
+            var maxFieldLength = userName.Length;
+            if (userEmail.Length > maxFieldLength)
+            {
+                maxFieldLength = userEmail.Length;
+            }
+            var columnPadding = maxFieldLength + 2;
+            var paddedName = userName.PadRight(columnPadding);
+            var paddedEmail = userEmail.PadRight(columnPadding);
+            var age = userAge.ToString();
+            var paddedAge = age.PadRight(columnPadding);
+
+            var descNamePadded = "Имя".PadRight(columnPadding);
+            var descAgePadded = "Возраст".PadRight(columnPadding);
+            var descEmailPadded = "Почта".PadRight(columnPadding);
+            var headerNamePadded = "Поле".PadRight(columnPadding);
+            var headerValuePadded = "Значение".PadRight(columnPadding);
+
+            for (var i = 1; i <= ((columnPadding * 2) + 5); i++)
+            {
+                Console.Write('-');
+            }
+            Console.WriteLine();
+            Console.WriteLine($"| {headerNamePadded}| {headerValuePadded}|");
+            for (var i = 1; i <= ((columnPadding * 2) + 5); i++)
+            {
+                Console.Write('-');
+            }
+            Console.WriteLine();
+            Console.WriteLine($"| {descNamePadded}| {paddedName}|");
+            Console.WriteLine($"| {descAgePadded}| {paddedAge}|");
+            Console.WriteLine($"| {descEmailPadded}| {paddedEmail}|");
+            for (var i = 1; i <= ((columnPadding * 2) + 5); i++)
+            {
+                Console.Write('-');
+            }
         }
     }
 }
