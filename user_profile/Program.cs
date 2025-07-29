@@ -112,6 +112,10 @@ namespace user_profile
             var outputData = JsonSerializer.Serialize(userData);
 
             Console.WriteLine(outputData);
+
+
+            // выводим данные с выравниванием в табличке
+            var paddedName = userName.PadRight()
         }
     }
 }
