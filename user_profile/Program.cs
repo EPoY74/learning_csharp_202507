@@ -32,7 +32,7 @@ namespace user_profile
             {
                 Console.Write("Введите свое имя: ");
                 userName = Console.ReadLine();
-                if ((userName is null) || (userName.Length <  1))
+                if (!Validators.IsValidInput(userName))
                 {
                     Console.WriteLine("Имя не дожно быть пустым, пожалуйста, введите корректное имя.");
                     continue;
@@ -48,19 +48,9 @@ namespace user_profile
             {
                 Console.Write("Введите свой возраст: ");
                 var inputUserAge = Console.ReadLine();
-                if ((inputUserAge is null) 
-                    || (inputUserAge.Length == 0)
-                    )
+                if (!Validators.IsValidAge(inputUserAge, out userAge))
                 {
-                    Console.WriteLine("Вы ничего не ввели, пожалуйста, введите возраст");
-                    continue;
-                }
-                if (!int.TryParse(inputUserAge, out userAge)
-                    || (userAge > 140)
-                    || (userAge < 1)
-                    )
-                {
-                    Console.WriteLine("Введите корректный возраст, от 1 до 140 лет.");
+                    Console.WriteLine("Введите корректный возраст, от 1 до 130 лет.");
                     continue;
                 }
                 else
@@ -74,25 +64,14 @@ namespace user_profile
             {
                 Console.Write("Введите свою электронную почту: ");
                 userEmail = Console.ReadLine();
-                if ( (userEmail is null)
-                    || (userEmail.Length < 1))
+                if (!Validators.IsValidInput(userEmail))
                     {
                     Console.WriteLine("Введите адрес вашей электнонной почты");
                     continue;
                 }
-                if (!userEmail.Any(c => c == '@'))
+                if (!Validators.IsValidEmail(userEmail))
                 {
-                    Console.WriteLine("Адрес электронной почты должен содержать символ @.");
-                    continue;
-                }
-                if ((userEmail.Count(c => c == '@') > 1))
-                {
-                    Console.WriteLine("Адрес электронной почты должен содержать только 1 символ @.");
-                    continue;
-                }
-                if (!userEmail.Any(c => c == '.'))
-                {
-                    Console.WriteLine("Адреc электронной почты должен иметь '.' ");
+                    Console.WriteLine("Адрес электронной почты должен содержать один символ @ и как, как минимум, одну точку '.' и быть более 5 символов");
                     continue;
                 }
                 break;
