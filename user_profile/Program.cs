@@ -115,7 +115,7 @@ namespace user_profile
 
 
             // выводим данные с выравниванием в табличке
-            var paddedName = userName.PadRight()
+            // var paddedName = userName.PadRight()
         }
     }
 }
