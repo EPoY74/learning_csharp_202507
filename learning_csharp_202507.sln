@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "les_02", "les_02\les_02.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user_profile", "user_profile\user_profile.csproj", "{28F58BA0-1131-49A9-A7E1-F5F44A4916D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "les2_01", "les2_01\les2_01.csproj", "{C59F392F-AE25-4D25-901B-A75778C43F22}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{28F58BA0-1131-49A9-A7E1-F5F44A4916D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28F58BA0-1131-49A9-A7E1-F5F44A4916D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28F58BA0-1131-49A9-A7E1-F5F44A4916D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C59F392F-AE25-4D25-901B-A75778C43F22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C59F392F-AE25-4D25-901B-A75778C43F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C59F392F-AE25-4D25-901B-A75778C43F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C59F392F-AE25-4D25-901B-A75778C43F22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
