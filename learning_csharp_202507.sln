@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "user_profile", "user_profil
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "les2_01", "les2_01\les2_01.csproj", "{C59F392F-AE25-4D25-901B-A75778C43F22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoApp", "todo-app\TodoApp.csproj", "{97BE8BE2-9265-480C-AEED-AA025D5FF30B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{C59F392F-AE25-4D25-901B-A75778C43F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C59F392F-AE25-4D25-901B-A75778C43F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C59F392F-AE25-4D25-901B-A75778C43F22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97BE8BE2-9265-480C-AEED-AA025D5FF30B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97BE8BE2-9265-480C-AEED-AA025D5FF30B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97BE8BE2-9265-480C-AEED-AA025D5FF30B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97BE8BE2-9265-480C-AEED-AA025D5FF30B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
