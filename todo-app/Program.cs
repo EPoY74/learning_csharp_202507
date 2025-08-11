@@ -129,6 +129,16 @@ namespace TodoApp
             }
         }
 
+        static void DysplayTasks(List<Task> tasks)
+        {
+            if (tasks is not null && tasks.Count > 0)
+            {
+                foreach (var task in tasks)
+                {
+                }
+            }
+        }
+
         // Task class to represent a task in the todo app
         public class  Task
         {
