@@ -113,19 +113,20 @@ namespace TodoApp
                                 Id = id,
                                 Name = name,
                                 Description = description,
-                                IsComplited = IsComplited,
+                                IsComplited = isComplited,
                             }
                             );
                         }
                     }
                 }
+
+                return tasks;
             }
             catch(Exception ex) 
             {
                 Console.WriteLine($"Ошибка: {ex.Message}");
                 throw;
             }
-            return new List<Task>(); // Simulate getting tasks
         }
 
         // Task class to represent a task in the todo app
@@ -134,7 +135,7 @@ namespace TodoApp
             public int Id { get; set; }
             public string Name { get; set; } = string.Empty;
             public string Description { get; set; } = string.Empty;
-            public DateTime IsComplited { get; set; }
+            public bool IsComplited { get; set; }
         }
     }
 }
