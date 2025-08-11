@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using SQLitePCL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,7 +13,8 @@ namespace TodoApp
     {
         static void Main(string[] args)
         {
-
+            // Initialize SQLitePCL to use SQLite
+            SQLitePCL.Batteries.Init();
             // Путь к базе данных (если файла нет, он будет создан)
             string connectionString = "Data Source=task.db";
 
@@ -20,7 +22,8 @@ namespace TodoApp
             CreateDatabase(connectionString);
 
             //Add a new task in database
-            bool isTaskAdded = AddTask(connectionString, "task 1", "Description Task 1");
+
+            bool isTaskAdded = AddTask(connectionString, "task 3", "Description Task 3");
             if(isTaskAdded)
             {
                 Console.WriteLine("Task added successfully");
@@ -29,29 +32,39 @@ namespace TodoApp
             {
                 Console.WriteLine("Failed to add task");
             }
-
+             
             //get all tasks
             List<Task> tasks = GetTasks(connectionString);
+
+            DisplayTasks(tasks);
         }
 
         //Create a new database and table
         static void CreateDatabase(string connectionString)
         {
-            using (var connection = new SqliteConnection(connectionString))
+            try
             {
-                connection.Open();
-                var createTableCommand = connection.CreateCommand();
-                createTableCommand.CommandText =
-                @"
-                    CREATE TABLE IF NOT EXISTS TASKS(
-                        Id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Name TEXT NOT NULL,
-                        Description TEXT NOT NULL,
-                        isComplited DATETIME DEFAULT CURRENT_TIMESTAMP
-                    );  
-                ";
-                createTableCommand.ExecuteNonQuery();
+                using (var connection = new SqliteConnection(connectionString))
+                {
+                    connection.Open();
+                    var createTableCommand = connection.CreateCommand();
+                    createTableCommand.CommandText =
+                    @"
+                        CREATE TABLE IF NOT EXISTS TASKS(
+                            Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            Name TEXT NOT NULL,
+                            Description TEXT NOT NULL,
+                            isComplited BOOLEAN DEFAULT 0,
+                        );  
+                    ";
+                    createTableCommand.ExecuteNonQuery();
 
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ОШИБКА! Ошибка при создании базы данных: {ex.Message}");
+                throw;
             }
         }
 
@@ -72,10 +85,21 @@ namespace TodoApp
                     insertCommand.Parameters.AddWithValue("$name", name);
                     insertCommand.Parameters.AddWithValue("$description", description);
 
-                    insertCommand.ExecuteNonQuery();
+                    var numOfRecords = insertCommand.ExecuteNonQuery();
+                    if (numOfRecords > 0)
+                    { 
+                        Console.WriteLine($"Успех! Данные \"{name}\" и \"{description}\" добавлены в базу данных");
+                        Console.WriteLine($"Добавлено: {numOfRecords} строк(а).");
+                        return true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Не удалось добавить данные в базу данных.");
+                        return false;
+                    }
                 }
-                Console.WriteLine($"Успех! Данные {name} и {description} добавлены в базу данных");
-                return true;
+                
+                
             }
             catch(Exception ex)
             {
@@ -129,7 +153,7 @@ namespace TodoApp
             }
         }
 
-        static void DysplayTasks(List<Task> tasks)
+        static void DisplayTasks(List<Task> tasks)
         {
             if (tasks is not null && tasks.Count > 0)
             {
