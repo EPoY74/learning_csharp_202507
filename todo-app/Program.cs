@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq.Expressions;
 
@@ -80,7 +81,6 @@ namespace TodoApp
             {
                 Console.WriteLine($"ОШИБКА! Ошибка при добавлении данных: {ex.Message}");
                 throw;
-                //return false;
             }
         }
         
@@ -88,6 +88,43 @@ namespace TodoApp
         // get all tasks from database
         static List<Task> GetTasks(string connectionString)
         {
+            try
+            {
+                List<Task> tasks = new List<Task>();
+
+                using(var connection = new SqliteConnection(connectionString))
+                {
+                    connection.Open();
+
+                    var selectCommand = connection.CreateCommand();
+                    selectCommand.CommandText = "SELECT * FROM Tasks";
+
+                    using (var reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        { 
+                            int id = reader.GetInt32(0);
+                            string name = reader.GetString(1);
+                            string description = reader.GetString(2);
+                            bool isComplited = reader.GetBoolean(3);
+
+                            tasks.Add(new Task
+                            {
+                                Id = id,
+                                Name = name,
+                                Description = description,
+                                IsComplited = IsComplited,
+                            }
+                            );
+                        }
+                    }
+                }
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine($"Ошибка: {ex.Message}");
+                throw;
+            }
             return new List<Task>(); // Simulate getting tasks
         }
 
@@ -97,7 +134,7 @@ namespace TodoApp
             public int Id { get; set; }
             public string Name { get; set; } = string.Empty;
             public string Description { get; set; } = string.Empty;
-            public DateTime isComplited { get; set; }
+            public DateTime IsComplited { get; set; }
         }
     }
 }
