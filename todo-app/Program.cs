@@ -135,6 +135,12 @@ namespace TodoApp
             {
                 foreach (var task in tasks)
                 {
+                    string outputtingTask = @$"
+                    ID: {task.Id}, 
+                    Name: {task.Name}, 
+                    Description: {task.Description}, 
+                    IsComplited: {task.IsComplited}";
+                    Console.WriteLine(outputtingTask);
                 }
             }
         }
